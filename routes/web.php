@@ -18,4 +18,4 @@
 */
 
 Route::get('/', 'FrontController@index');
-Route::get('/', 'FrontController@db_ages');
+Route::post('/confirm', 'FrontController@confirm');

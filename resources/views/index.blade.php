@@ -8,27 +8,28 @@
   </head>
   <body>
     <div class="container">
-      <form class="w-50 mx-auto" action="" method="post">
+      <form class="w-50 mx-auto" action="confirm" method="post">
+        {{ csrf_field() }}
         <div class="header text-center py-5">
-          <p>システムへのご意見をお聞かせください</p>
+          <h4>システムへのご意見をお聞かせください</h4>
         </div>
         <div class="form-group row">
-          <label for="inputName" class="col-sm-3 col-form-lebel">
+          <label for="inputName" class="col-sm-4 col-form-lebel">
             名前
             <span class="text-danger pl-2">※</span>
           </label>
-          <div class="col-sm-9">
+          <div class="col-sm-8">
             <input type="text" class="form-control" id="inputName" name="fullname" placeholder="入力してください">
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <p>
               性別
               <span class="text-danger pl-2">※</span>
             </p>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-8">
             <input type="radio" name="gender" id="radio1" value="1" checked>
             <label for="radio1">男性</label>
             <input type="radio" name="gender" id="radio2" value="2">
@@ -36,13 +37,13 @@
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <p>
               年代
               <span class="text-danger pl-2">※</span>
             </p>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-8">
             <select class="form-control" name="age_id">
               <option disabled selected>選択してください</option>
               @foreach ($ages as $age)
@@ -52,30 +53,30 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputEmail" class="col-sm-3">
+          <label for="inputEmail" class="col-sm-4">
             メールアドレス
             <span class="text-danger pl-2">※</span>
           </label>
-          <div class="col-sm-9">
+          <div class="col-sm-8">
             <input type="email" class="form-control" id="inputEmail" name="email" placeholder="入力してください">
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3">メール送信可否</div>
-          <div class="col-sm-9">
+          <div class="col-sm-4">メール送信可否</div>
+          <div class="col-sm-8">
             <p>登録したメールアドレスにメールマガジンをお送りしてもよろしいですか？</p>
             <input type="checkbox" id="checkbox" name="is_send_email" checked>
             <label for="checkbox">送信を許可します</label>
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputContent" class="col-sm-3">ご意見</label>
-          <div class="col-sm-9">
+          <label for="inputContent" class="col-sm-4">ご意見</label>
+          <div class="col-sm-8">
             <textarea type="text" class="form-control" id="inputContent" name="feedback" rows="5"></textarea>
           </div>
         </div>
-        <div class="py-3 text-center">
-          <input type="submit" class="btn btn-primary" value="確認">
+        <div class="py-5 text-center">
+          <input type="submit" class="btn btn-primary" style="width:150px" value="確認">
         </div>
       </form>
     </div>
