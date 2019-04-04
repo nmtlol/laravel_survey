@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="py-5 text-center">
-          <input type="submit" class="btn btn-primary" style="width:150px" value="確認">
+          <input type="submit" class="btn btn-primary w-25" value="確認">
         </div>
       </form>
     </div>
