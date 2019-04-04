@@ -10,7 +10,7 @@ class FrontController extends Controller
     public function index()
     {
         $ages = DB::table('ages')->get(); // DBからagesテーブルを配列として$agesに代入
-        return view('index', compact('ages')); // indexと配列をviewに渡す
+        return view('front/index', compact('ages')); // indexと配列をviewに渡す
     }
     
     public function confirm(Request $request)
@@ -24,7 +24,7 @@ class FrontController extends Controller
             $data['gender'] = '女';
         }
         
-        switch ($data['age_id']) {  // $data['age_id']の中身の数字を文字列に置き換え、配列に代入
+        switch ($data['age_id']) {  // $data['age_id']の数字を文字列に置き換え、配列に代入
             case 1:
                 $data['age_id'] = '10代以下';
                 break;
@@ -44,6 +44,13 @@ class FrontController extends Controller
                 $data['age_id'] = '60代以上';
                 break;
         }
-        return view('confirm')->with($data);
+        
+        if (!isset($data['is_send_email'])) {
+            $data['is_send_email'] = '送信不許可';
+        } else {
+            $data['is_send_email'] = '送信許可';
+        }
+        
+        return view('front/confirm', compact('data'));
     }
 }
