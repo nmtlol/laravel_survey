@@ -11,28 +11,28 @@
         <div class="w-50 mx-auto text-left">
             <h4 class="py-5 text-center">内容確認</h4>
             <div class="row border-top pt-3">
-                <p class="col-sm-4">氏名</p>
-                <p class="col-sm-8">{{ $data['fullname'] }}</p>
+                <p class="col-sm-5">氏名</p>
+                <p class="col-sm-7">{{ $data['fullname'] }}</p>
             </div>
             <div class="row border-top pt-3">
-                <p class="col-sm-4">性別</p>
-                <p class="col-sm-8">{{ $data['gender'] }}</p>
+                <p class="col-sm-5">性別</p>
+                <p class="col-sm-7">{{ $data['gender'] }}</p>
             </div>
             <div class="row border-top pt-3">
-                <p class="col-sm-4">年代</p>
-                <p class="col-sm-8">{{ $data['age_id'] }}</p>
+                <p class="col-sm-5">年代</p>
+                <p class="col-sm-7">{{ $data['age_id'] }}</p>
             </div>
             <div class="row border-top pt-3">
-                <p class="col-sm-4">メールアドレス</p>
-                <p class="col-sm-8">{{ $data['email'] }}</p>
+                <p class="col-sm-5">メールアドレス</p>
+                <p class="col-sm-7">{{ $data['email'] }}</p>
             </div>
             <div class="row border-top pt-3">
-                <p class="col-sm-4">メール送信可否</p>
-                <p class="col-sm-8">{{ $data['is_send_email'] }}</p>
+                <p class="col-sm-5">メール送信可否</p>
+                <p class="col-sm-7">{{ $data['is_send_email'] }}</p>
             </div>
             <div class="row border-top pt-3">
-                <p class="col-sm-4">ご意見</p>
-                <p class="col-sm-8 text-left">{!! nl2br(e($data['feedback']), false) !!}</p>
+                <p class="col-sm-5">ご意見</p>
+                <p class="col-sm-7 text-left">{!! nl2br(e($data['feedback']), false) !!}</p>
             </div>
             <div class="py-5 text-center">
                 <button class="btn btn-primary w-25 mr-3" onclick="history.back();">再入力</button>

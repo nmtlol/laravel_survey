@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; // DBからviewに変数を渡すために必要
+use Illuminate\Http\Request;
+use App\Http\Requests\CreateAnswerRequest;
 
 class FrontController extends Controller
 {
@@ -13,18 +14,20 @@ class FrontController extends Controller
         return view('front/index', compact('ages')); // indexと配列をviewに渡す
     }
     
-    public function confirm(Request $request)
+    public function confirm(CreateAnswerRequest $request)
     {
         
         $data = $request->all();
         
-        if ($data['gender'] == 1) { // $data['gender']の中身が1だったら「男」、それ以外だったら「女」を配列に代入
+        // 1だったら「男」、それ以外だったら「女」
+        if ($data['gender'] == 1) {
             $data['gender'] = '男'; 
         } else {
             $data['gender'] = '女';
         }
         
-        switch ($data['age_id']) {  // $data['age_id']の数字を文字列に置き換え、配列に代入
+        // 数字を文字列に置き換える
+        switch ($data['age_id']) {
             case 1:
                 $data['age_id'] = '10代以下';
                 break;
