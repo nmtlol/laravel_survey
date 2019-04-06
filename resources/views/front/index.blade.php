@@ -19,7 +19,8 @@
             <span class="text-danger pl-2">※</span>
           </label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputName" name="fullname" placeholder="入力してください">
+            <input type="text" class="form-control" id="inputName" name="fullname" value="{{ old('fullname') }}" placeholder="入力してください">
+            <small class="text-danger">{{ $errors->first('fullname') }}</small>
           </div>
         </div>
         <div class="form-group row">
@@ -30,10 +31,11 @@
             </p>
           </div>
           <div class="col-sm-8">
-            <input type="radio" name="gender" id="radio1" value="1" checked>
+            <input type="radio" name="gender" id="radio1" value="1" {{ old('gender',1) == 1 ? 'checked' : '' }}>
             <label for="radio1">男性</label>
-            <input type="radio" name="gender" id="radio2" value="2">
+            <input type="radio" name="gender" id="radio2" value="2" {{ old('gender') == 2 ? 'checked' : '' }}>
             <label for="radio2">女性</label>
+            <small class="text-danger">{{ $errors->first('gender') }}</small>
           </div>
         </div>
         <div class="form-group row">
@@ -45,11 +47,12 @@
           </div>
           <div class="col-sm-8">
             <select class="form-control" name="age_id">
-              <option disabled selected>選択してください</option>
+              <option value="">選択してください</option>
               @foreach ($ages as $age)
-              <option value="{{ $age->id }}">{{ $age->age }}</option>
+              <option value="{{ $age->id }}" {{ old('age_id') == $age->id ? 'selected' : '' }}>{{ $age->age }}</option>
               @endforeach
             </select>
+            <small class="text-danger">{{ $errors->first('age_id') }}</small>
           </div>
         </div>
         <div class="form-group row">
@@ -58,21 +61,22 @@
             <span class="text-danger pl-2">※</span>
           </label>
           <div class="col-sm-8">
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="入力してください">
+            <input type="email" class="form-control" id="inputEmail" name="email" value="{{ old('email') }}" placeholder="入力してください">
+            <small class="text-danger">{{ $errors->first('email') }}</small>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-sm-4">メール送信可否</div>
           <div class="col-sm-8">
             <p>登録したメールアドレスにメールマガジンをお送りしてもよろしいですか？</p>
-            <input type="checkbox" id="checkbox" name="is_send_email" checked>
+            <input type="checkbox" id="checkbox" name="is_send_email" {{ old('is_send_email') || !$errors->any() ? 'checked' : '' }}>
             <label for="checkbox">送信を許可します</label>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputContent" class="col-sm-4">ご意見</label>
           <div class="col-sm-8">
-            <textarea type="text" class="form-control" id="inputContent" name="feedback" rows="5"></textarea>
+            <textarea type="text" class="form-control" id="inputContent" name="feedback" rows="5">{{ old('feedback') }}</textarea>
           </div>
         </div>
         <div class="py-5 text-center">
