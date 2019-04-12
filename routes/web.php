@@ -18,4 +18,5 @@
 */
 
 Route::get('/', 'FrontController@index');
+Route::post('/', 'FrontController@store');
 Route::post('/confirm', 'FrontController@confirm');

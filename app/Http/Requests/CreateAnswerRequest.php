@@ -6,6 +6,14 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateAnswerRequest extends FormRequest
 {
+    /*
+    *confirmページでもバリデーションを行うため、
+    *必ずindexページにリダイレクトするようにパスを指定
+    */
+    public $redirect = "/";
+    public $redirectRoute = "/";
+    public $redirectAction = "FrontController@index";
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -44,6 +52,7 @@ class CreateAnswerRequest extends FormRequest
             'fullname.required' => '※この項目は必須です',
             'age_id.required'  => '※この項目は必須です',
             'email.required'  => '※この項目は必須です',
+            'feedback.max'  => '※入力できる最大文字数は10000字です',
         ];
     }
 }
